@@ -13,11 +13,11 @@ public class BoxMovement : MonoBehaviour {
     
     // The movement speed of this character
     [SerializeField] float moveSpeed = 3.0f;
-    [SerializeField] float rotationSpeed = 3.0f;
+    // [SerializeField] float rotationSpeed = 3.0f;
+    [SerializeField] Vector3 rotationSpeed = new Vector3(0, 0, 50);
 
     Player player; // The Rewired Player
     Rigidbody playerRB;
-    // CharacterController cc;
     Vector3 moveVector;
     float rotateVal;
 
@@ -25,21 +25,24 @@ public class BoxMovement : MonoBehaviour {
     void Awake() {
         // Get the Rewired Player object for this player and keep it for the duration of the character's lifetime
         player = ReInput.players.GetPlayer(playerId);
-        
-
-        // Get the character controller
-        // cc = GetComponent<CharacterController>();
+        playerRB = GetComponent<Rigidbody>();
     }
 
     void Update () {
         GetInput();
-        ProcessInput();
     }
 
-    void FixedUpdate() {
-        if(moveVector.x != 0.0f || moveVector.y != 0.0f) {
-            transform.Translate(moveVector * moveSpeed * Time.deltaTime);
-            // cc.Move(moveVector * moveSpeed * Time.deltaTime);
+    void FixedUpdate()
+    {
+        ProcessMovement(); // Placed in fixed update to improve physics performance
+        ProcessRotation();
+    }
+
+    private void ProcessMovement()
+    {
+        if (moveVector.x != 0.0f || moveVector.y != 0.0f)
+        {
+            playerRB.MovePosition(transform.position + moveVector * moveSpeed * Time.deltaTime); // MovePosition idea from: https://forum.unity.com/threads/player-keeps-glitching-through-walls.553723/
         }
     }
 
@@ -52,15 +55,10 @@ public class BoxMovement : MonoBehaviour {
         rotateVal = player.GetAxis("Rotate");
     }
 
-    private void ProcessInput() {
-        // Process movement
-        // if(moveVector.x != 0.0f || moveVector.y != 0.0f) {
-        //     transform.Translate(moveVector * moveSpeed * Time.deltaTime);
-        //     // cc.Move(moveVector * moveSpeed * Time.deltaTime);
-        // }
-
+    private void ProcessRotation() {
         if(rotateVal != 0.0f) {
-            transform.Rotate(Vector3.forward * rotationSpeed * rotateVal * Time.deltaTime);
+            Quaternion deltaRotation = Quaternion.Euler(rotationSpeed * rotateVal * Time.fixedDeltaTime);
+            playerRB.MoveRotation(playerRB.rotation * deltaRotation);
         }
     }
 }
