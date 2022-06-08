@@ -848,9 +848,41 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 252597585294135287, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 1667372865}
+    - target: {fileID: 262389851931062384, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
+      propertyPath: m_TagString
+      value: SpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 1984381110503987465, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 1667372865}
     - target: {fileID: 3010441854573173414, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
       propertyPath: ball
       value: 
       objectReference: {fileID: 7490910219372568794, guid: dafbaf35c456b2b46b60ef31128ca2e8, type: 3}
+    - target: {fileID: 3877801508251974757, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 7490910219372568794, guid: dafbaf35c456b2b46b60ef31128ca2e8, type: 3}
+    - target: {fileID: 3877801508251974757, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
+      propertyPath: parentGameObject
+      value: 
+      objectReference: {fileID: 1667372865}
+    - target: {fileID: 6509932445909360640, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7101165518781002509, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7101165518781002509, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}

@@ -5,11 +5,9 @@ using UnityEngine;
 public class SpawnPoint : MonoBehaviour
 {
     [SerializeField] GameObject ball; // Grab reference to the ball prefab
-
-    GameObject parentGameObject;
+    [SerializeField] GameObject parentGameObject;
 
     void Awake() {
-        parentGameObject = GameObject.FindWithTag("Balls"); // Grab reference to the ball container
         SpawnBall();
     }
 

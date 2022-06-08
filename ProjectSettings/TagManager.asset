@@ -5,11 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Balls
+  - SpawnPoint
+  - WinPoint
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Win
   - Water
   - UI
   - Box
