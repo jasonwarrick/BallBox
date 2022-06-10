@@ -108,11 +108,11 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &7244247732338869186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,3 +126,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 7490910219372568794, guid: dafbaf35c456b2b46b60ef31128ca2e8, type: 3}
+  parentGameObject: {fileID: 0}

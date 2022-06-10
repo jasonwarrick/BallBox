@@ -7,6 +7,7 @@ public class WinPoint : MonoBehaviour
     [SerializeField] SpawnPoint spawnPoint;
     
     void OnTriggerEnter(Collider other) {
-        spawnPoint.SpawnBall();
+        Debug.Log("Win");
+        // spawnPoint.SpawnBall();
     }
 }
