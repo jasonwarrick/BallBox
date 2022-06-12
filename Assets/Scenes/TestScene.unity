@@ -293,7 +293,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -12.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -538,6 +538,15 @@ MonoBehaviour:
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 0
+    - _id: 3
+      _name: Bump
+      _type: 1
+      _descriptiveName: Bump the box up
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
     actionCategories:
     - _name: Default
       _descriptiveName: Default
@@ -547,7 +556,7 @@ MonoBehaviour:
     actionCategoryMap:
       list:
       - categoryId: 0
-        actionIds: 000000000100000002000000
+        actionIds: 00000000010000000200000003000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -637,6 +646,17 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 3
+        _elementType: 1
+        _elementIdentifierId: 4
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
     keyboardMaps:
     - id: 0
       categoryId: 0
@@ -711,13 +731,24 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 3
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 32
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
     mouseMaps: []
     customControllerMaps: []
     customControllers: []
     controllerMapLayoutManagerRuleSets: []
     controllerMapEnablerRuleSets: []
     playerIdCounter: 2
-    actionIdCounter: 3
+    actionIdCounter: 4
     actionCategoryIdCounter: 1
     inputBehaviorIdCounter: 1
     mapCategoryIdCounter: 1
@@ -770,6 +801,14 @@ PrefabInstance:
     - target: {fileID: 221573706659343088, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
       propertyPath: m_Name
       value: TestLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 221573706659343090, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
+      propertyPath: maxBump
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 221573706659343090, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
+      propertyPath: bumpSpeed
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 221573706659343091, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
       propertyPath: m_RootOrder
@@ -839,6 +878,10 @@ PrefabInstance:
       propertyPath: ball
       value: 
       objectReference: {fileID: 7490910219372568794, guid: dafbaf35c456b2b46b60ef31128ca2e8, type: 3}
+    - target: {fileID: 3360958114305401669, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3877801508251974757, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
       propertyPath: ball
       value: 
@@ -847,8 +890,20 @@ PrefabInstance:
       propertyPath: parentGameObject
       value: 
       objectReference: {fileID: 2086583639}
+    - target: {fileID: 4425302885352798773, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
+      propertyPath: m_TagString
+      value: Fan
+      objectReference: {fileID: 0}
     - target: {fileID: 6509932445909360640, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7052338829327361682, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7052338829327361682, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
+      propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7101165518781002509, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
@@ -862,6 +917,14 @@ PrefabInstance:
     - target: {fileID: 7101165518781002509, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
       propertyPath: m_CollisionDetection
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8595351703975597039, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
+      propertyPath: fanSpeed
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8595351703975597039, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
+      propertyPath: direction.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}

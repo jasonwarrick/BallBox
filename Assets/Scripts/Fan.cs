@@ -4,10 +4,24 @@ using UnityEngine;
 
 public class Fan : MonoBehaviour
 {
-    [SerializeField] float fanSpeed;
+    // All fan code adapted from: https://www.youtube.com/watch?v=iCMhrKOuBZg
+
+    public float fanSpeed;
+    public Vector3 direction;
+    
+    GameObject ball;
+
+    private void Update() {
+        direction = transform.TransformDirection(Vector3.up); // Gets the local up vector
+    }
 
     void OnTriggerEnter(Collider other) {
         Debug.Log("Fan");
-        other.gameObject.GetComponent<Rigidbody>().AddRelativeForce(Vector3.up * fanSpeed * Time.deltaTime);
+        ball = other.gameObject;
+        ball.GetComponent<Ball>().inFan = true;
+    }
+
+    void OnTriggerExit(Collider other) {
+        ball.GetComponent<Ball>().inFan = false;
     }
 }
