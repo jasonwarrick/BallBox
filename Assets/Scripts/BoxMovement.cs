@@ -38,23 +38,12 @@ public class BoxMovement : MonoBehaviour {
         GetInput();
     }
 
-    void FixedUpdate()
-    {
+    void FixedUpdate() {
         ProcessMovement(); // Placed in fixed update to improve physics performance
         ProcessRotation();
     }
 
-    private void ProcessMovement()
-    {
-        // if (moveVector.x != 0.0f || moveVector.y != 0.0f && playerRB.position.y >= 0f && playerRB.position.y <= 1f && !hitTop) {
-        //     playerRB.MovePosition(transform.position + moveVector * moveSpeed * Time.deltaTime); // MovePosition idea from: https://forum.unity.com/threads/player-keeps-glitching-through-walls.553723/
-        // } else {
-        //     hitTop = true;
-        //     playerRB.position = new Vector3(0, Mathf.Lerp(playerRB.position.y, 0f, 0.2f), 0);
-        // }
-
-        // if (playerRB.position.y <= 0f) { hitTop = false; }
-
+    private void ProcessMovement() {
         if (bump) {
             bumpVector = new Vector3(0, Mathf.Lerp(playerRB.position.y, maxBump, bumpSpeed), 0);
             playerRB.position = transform.TransformDirection(bumpVector);
@@ -76,7 +65,13 @@ public class BoxMovement : MonoBehaviour {
     private void ProcessRotation() {
         if(rotateVal != 0.0f) {
             Quaternion deltaRotation = Quaternion.Euler(rotationSpeed * rotateVal * Time.fixedDeltaTime);
-            playerRB.MoveRotation(playerRB.rotation * deltaRotation);
+            Quaternion multipliedRotation = playerRB.rotation * deltaRotation;
+            playerRB.MoveRotation(multipliedRotation);
+            // if (transform.eulerAngles.z <= 20f && transform.eulerAngles.z >= -20f) {
+            //     playerRB.MoveRotation(multipliedRotation);  
+            // } else if (transform.eulerAngles.z > 20f) {
+            //     playerRB.MoveRotation(Quaternion.Euler(0, 0, 20f)); 
+            // }
         }
     }
 }

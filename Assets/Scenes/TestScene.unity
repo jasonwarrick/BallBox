@@ -804,7 +804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 221573706659343090, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
       propertyPath: maxBump
-      value: 3.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 221573706659343090, guid: a0c97eaf7c7f4c14693fdcee305a18ca, type: 3}
       propertyPath: bumpSpeed
