@@ -5,9 +5,10 @@ using UnityEngine;
 public class WinPoint : MonoBehaviour
 {
     [SerializeField] SpawnPoint spawnPoint;
+
+    public bool win = false;
     
     void OnTriggerEnter(Collider other) {
-        Debug.Log("Win");
-        // spawnPoint.SpawnBall();
+        win = true;
     }
 }

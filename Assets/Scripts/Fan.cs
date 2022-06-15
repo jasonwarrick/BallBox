@@ -16,7 +16,6 @@ public class Fan : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other) {
-        Debug.Log("Fan");
         ball = other.gameObject;
         ball.GetComponent<Ball>().inFan = true;
     }

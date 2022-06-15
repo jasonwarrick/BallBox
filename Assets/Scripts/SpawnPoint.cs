@@ -13,6 +13,6 @@ public class SpawnPoint : MonoBehaviour
 
     public void SpawnBall() {
         GameObject ballInstance = Instantiate(ball, gameObject.GetComponent<Rigidbody>().position, Quaternion.identity); // Create an instance of the ball prefab; Quaternion.identity essentially means "no rotation"
-        ballInstance.transform.parent = parentGameObject.transform; // Set the ball position to the spawn point position
+        ballInstance.transform.parent = parentGameObject.transform; // Set the ball parent to the Balls game object
     }
 }

@@ -14,9 +14,6 @@ public class BoxMovement : MonoBehaviour {
     Rigidbody playerRB;
     Vector3 moveVector;
     bool bump = false;
-    
-    // The movement speed of this character
-    [SerializeField] float moveSpeed = 3.0f;
 
     [SerializeField] Vector3 rotationSpeed = new Vector3(0, 0, 50);
     
@@ -26,7 +23,6 @@ public class BoxMovement : MonoBehaviour {
     Vector3 bumpVector = new Vector3(0, 0, 0);
 
     float rotateVal;
-    bool hitTop = false;
 
     void Awake() {
         // Get the Rewired Player object for this player and keep it for the duration of the character's lifetime
