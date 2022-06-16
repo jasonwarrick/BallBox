@@ -281,7 +281,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerId: 0
-  moveSpeed: 10
   rotationSpeed: {x: 0, y: 0, z: 50}
   maxBump: 2
   minBump: 0
@@ -683,6 +682,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TopSpike
       objectReference: {fileID: 0}
+    - target: {fileID: 6200902150131511295, guid: 1bea76b780f881c4b8f40beedaaa19e0, type: 3}
+      propertyPath: m_TagString
+      value: Spike
+      objectReference: {fileID: 0}
     - target: {fileID: 8559500604247426637, guid: 1bea76b780f881c4b8f40beedaaa19e0, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -761,6 +764,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorSpike
       objectReference: {fileID: 0}
+    - target: {fileID: 6200902150131511295, guid: 1bea76b780f881c4b8f40beedaaa19e0, type: 3}
+      propertyPath: m_TagString
+      value: Spike
+      objectReference: {fileID: 0}
     - target: {fileID: 8559500604247426637, guid: 1bea76b780f881c4b8f40beedaaa19e0, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -838,6 +845,10 @@ PrefabInstance:
     - target: {fileID: 6200902150131511295, guid: 1bea76b780f881c4b8f40beedaaa19e0, type: 3}
       propertyPath: m_Name
       value: BottomSpike
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200902150131511295, guid: 1bea76b780f881c4b8f40beedaaa19e0, type: 3}
+      propertyPath: m_TagString
+      value: Spike
       objectReference: {fileID: 0}
     - target: {fileID: 8559500604247426637, guid: 1bea76b780f881c4b8f40beedaaa19e0, type: 3}
       propertyPath: m_RootOrder
@@ -1072,6 +1083,10 @@ PrefabInstance:
     - target: {fileID: 6200902150131511295, guid: 1bea76b780f881c4b8f40beedaaa19e0, type: 3}
       propertyPath: m_Name
       value: MiddleSpike
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200902150131511295, guid: 1bea76b780f881c4b8f40beedaaa19e0, type: 3}
+      propertyPath: m_TagString
+      value: Spike
       objectReference: {fileID: 0}
     - target: {fileID: 8559500604247426637, guid: 1bea76b780f881c4b8f40beedaaa19e0, type: 3}
       propertyPath: m_RootOrder

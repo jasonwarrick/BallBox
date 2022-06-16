@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 268579226}
   m_Layer: 0
   m_Name: LevelManager
-  m_TagString: Untagged
+  m_TagString: LevelManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,7 +159,10 @@ MonoBehaviour:
   - {fileID: 221573706659343088, guid: a278b42f3a87b3a40b95bea75a12ba76, type: 3}
   - {fileID: 221573706659343088, guid: 2480c3b3f7087954088c5db28d1a7b50, type: 3}
   - {fileID: 3894224761347508801, guid: 7c2c80cc511c07a43927742693719c5d, type: 3}
+  - {fileID: 221573706659343088, guid: 02bcc373d6d0fc4468137b4ff620277c, type: 3}
   - {fileID: 3894224761347508801, guid: aaaaad01ddbf5954d8a9cd312dc541fd, type: 3}
+  counter: 4
+  spikeList: []
 --- !u!4 &268579227
 Transform:
   m_ObjectHideFlags: 0

@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Spike : MonoBehaviour
 {
-    public bool lost = false;
+    GameObject levelManager;
+
+    void Awake() {
+        levelManager = GameObject.FindGameObjectWithTag("LevelManager");
+    }
 
     void OnTriggerEnter(Collider other) {
-        lost = true;
+        levelManager.GetComponent<LevelManager>().LostLevel();
         Destroy(other.gameObject);
     }
 }

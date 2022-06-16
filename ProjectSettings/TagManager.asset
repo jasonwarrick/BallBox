@@ -8,6 +8,8 @@ TagManager:
   - SpawnPoint
   - WinPoint
   - Fan
+  - Spike
+  - LevelManager
   layers:
   - Default
   - TransparentFX
