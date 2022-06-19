@@ -451,11 +451,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Jason
+  - name: Jason
     sentences:
-    - Hey!
-    - This is Jason, as you could probably tell.
-    - How's it going?
+    - Hey, what's up?
+    - I'm Jason!
+    - This is Ball Box!
+  - name: You
+    sentences:
+    - Hi!
+    - I'm me!
+    - Is it good?
+  - name: Someone Else
+    sentences:
+    - What're you guys doing over there?
+  - name: Jason
+    sentences:
+    - I was just about to show [YOU] the game I made, do you wanna see too?
+  dialogueFinished: 0
 --- !u!1 &778456482
 GameObject:
   m_ObjectHideFlags: 0

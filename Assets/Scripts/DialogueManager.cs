@@ -36,7 +36,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void DisplayNextSentence() {
-        if (sentences.Count == 0) {
+        if (sentences.Count == 0) { // End the dialogue when there are no more sentences to display
             EndDialogue();
             return;
         }
@@ -61,6 +61,10 @@ public class DialogueManager : MonoBehaviour
     }
 
     void EndDialogue() {
-        animator.SetBool("isOpen", false);
+        if (FindObjectOfType<DialogueTrigger>().dialogueFinished) { // Close the dialogue box if the trigger is exhausted
+            animator.SetBool("isOpen", false);
+        } else {
+            FindObjectOfType<DialogueTrigger>().TriggerDialogue(); // If it isn't, trigger the next speakers dialogue
+        }
     }
 }
