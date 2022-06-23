@@ -22,6 +22,8 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void StartDialogue(Dialogue dialogue) {
+        
+
         animator.SetBool("isOpen", true);
 
         nameText.text = dialogue.name;
@@ -63,6 +65,7 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue() {
         if (FindObjectOfType<DialogueTrigger>().dialogueFinished) { // Close the dialogue box if the trigger is exhausted
             animator.SetBool("isOpen", false);
+            Destroy(GameObject.FindGameObjectWithTag("StartConvo"));
         } else {
             FindObjectOfType<DialogueTrigger>().TriggerDialogue(); // If it isn't, trigger the next speakers dialogue
         }
