@@ -355,7 +355,7 @@ MonoBehaviour:
   - {fileID: 3894224761347508801, guid: 7c2c80cc511c07a43927742693719c5d, type: 3}
   - {fileID: 221573706659343088, guid: 02bcc373d6d0fc4468137b4ff620277c, type: 3}
   - {fileID: 3894224761347508801, guid: aaaaad01ddbf5954d8a9cd312dc541fd, type: 3}
-  counter: 3
+  counter: 5
   trigArray:
   - {fileID: 0}
   - {fileID: 0}
@@ -1091,7 +1091,7 @@ MonoBehaviour:
   nameText: {fileID: 734235434}
   dialogueText: {fileID: 1589437055}
   animator: {fileID: 201687755}
-  textDelayTime: 0.1
+  textDelayTime: 0.05
 --- !u!4 &954361684
 Transform:
   m_ObjectHideFlags: 0
@@ -1534,6 +1534,127 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shaderMaterial: {fileID: 2100000, guid: 9b0cef1f9e764d6469cfae05821ca94f, type: 2}
+--- !u!1 &1482911843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1482911847}
+  - component: {fileID: 1482911846}
+  - component: {fileID: 1482911845}
+  - component: {fileID: 1482911844}
+  - component: {fileID: 1482911848}
+  m_Layer: 5
+  m_Name: ConvoCanvas
+  m_TagString: CanvasManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1482911844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482911843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1482911845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482911843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &1482911846
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482911843}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &1482911847
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482911843}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &1482911848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482911843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46914c4200311a408fa7af191915b18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  convos:
+  - {fileID: 4671039069115290527, guid: 317f9c1b13f00cd4288695c2f7d8e8a0, type: 3}
+  - {fileID: 2963407164687902240, guid: 73277e01f782ac74e8b585645b6dcff5, type: 3}
+  - {fileID: 4579775826191456615, guid: abd5066dbb4c1954fb7a789e14510528, type: 3}
+  - {fileID: 4084823530945557029, guid: 44154ddf562e71b4a9f0fcd3ec0f1282, type: 3}
+  - {fileID: 7477640029291032202, guid: b622596669935ce4fb0ac78c52068eda, type: 3}
+  - {fileID: 5964356164078371271, guid: 3eb97a7cbeacf134e9a314a7d6f1e8b3, type: 3}
+  - {fileID: 2042780197297065763, guid: b07d23c1676abb04f92e86a216f550ed, type: 3}
+  - {fileID: 6346412361990294606, guid: d1c9252e685bf8741ae8ba2adced45fd, type: 3}
 --- !u!1 &1589437053
 GameObject:
   m_ObjectHideFlags: 0

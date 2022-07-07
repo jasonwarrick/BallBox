@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,10 +119,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 678, y: 492}
-  m_MaxSize: {x: 14001, y: 14042}
+  m_MinSize: {x: 679, y: 492}
+  m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 123
+  controlID: 122
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 62
+  controlID: 61
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 63
+  controlID: 62
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -277,8 +277,8 @@ MonoBehaviour:
     y: 0
     width: 390
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 22}
   m_Panes:
   - {fileID: 22}
@@ -402,9 +402,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 6cfbffffea440000364500004a450000
+      m_SelectedIDs: 2a450000
+      m_LastClickedID: 17706
+      m_ExpandedIDs: 08a5ffff22f7ffff6cfbfffff4440000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -464,9 +464,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -4.936713, y: 4.9305115, z: 1.9009285}
+    m_Target: {x: -23.135958, y: 7.160905, z: -5.1343307}
     speed: 2
-    m_Value: {x: -4.936713, y: 4.9305115, z: 1.9009285}
+    m_Value: {x: -23.135958, y: 7.160905, z: -5.1343307}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -513,20 +513,20 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.035963003, y: -0.04046278, z: 0.0014571423, w: 0.9985351}
+    m_Target: {x: 0.06761943, y: -0.19477476, z: 0.013460663, w: 0.9784287}
     speed: 2
-    m_Value: {x: 0.035962913, y: -0.04046268, z: 0.0014571387, w: 0.9985326}
+    m_Value: {x: 0.06763908, y: -0.1933056, z: 0.0133591285, w: 0.9787131}
   m_Size:
-    m_Target: 23.960773
+    m_Target: 20.488707
     speed: 2
-    m_Value: 23.960773
+    m_Value: 21.454144
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 1.16
-    m_SpeedNormalized: 0.5797899
+    m_Speed: 0.9800901
+    m_SpeedNormalized: 0.48978993
     m_SpeedMin: 0.001
     m_SpeedMax: 2
     m_EasingEnabled: 1
@@ -697,22 +697,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Levels
+    - Assets/Prefabs/Convos
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 74
   m_LastFolders:
-  - Assets/Prefabs/Levels
+  - Assets/Prefabs/Convos
   m_LastFoldersGridSize: 74
   m_LastProjectPath: C:\Users\Jason\Documents\BallMaze
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 104c0000
-    m_LastClickedID: 19472
-    m_ExpandedIDs: 00000000e24b0000024c000000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 3c4e0000
+    m_LastClickedID: 20028
+    m_ExpandedIDs: 00000000ae4c0000d64c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -740,7 +740,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000e24b0000
+    m_ExpandedIDs: 00000000ae4c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -884,7 +884,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 29014
+  m_LastSelectedObjectID: -2270
 --- !u!114 &22
 MonoBehaviour:
   m_ObjectHideFlags: 52

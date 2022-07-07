@@ -5,9 +5,12 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] GameObject[] levels;
+    DialogueTrigger dialogueTrigger;
 
     GameObject currentlevel;
     GameObject levelInstance;
+
+    GameObject canvasManager;
 
     public int counter = -1;
     bool destoryConvo = false;
@@ -16,16 +19,22 @@ public class LevelManager : MonoBehaviour
 
     void Awake() {
         currentlevel = levels[counter]; // Set the current level to the first (will make this more modular as I flesh out the level system and menus)
+        canvasManager = GameObject.FindGameObjectWithTag("CanvasManager");
         LoadLevel();
     }
 
     void LoadLevel() {
+        Debug.Log(counter);
         levelInstance = Instantiate(currentlevel, transform.position, Quaternion.identity); // Instatiate the object at the correct position (transform.position is just the origin)
-        levelInstance.transform.parent = gameObject.transform.parent; // Assign the instances parent (Not entirely necessary but it helps)
         
-        if (destoryConvo) { // Check if the level has been loaded from a loss, and destroy the conversation if it has
-            DestroyConvo();
+        dialogueTrigger = levelInstance.GetComponentInChildren<DialogueTrigger>();
+        canvasManager.GetComponent<CanvasManager>().cleanConvo(); // Remove any existing conversations
+        
+        if (!destoryConvo) { // Check if the level has been loaded from a loss, and destroy the conversation if it has
+            canvasManager.GetComponent<CanvasManager>().startConvo(counter);
         }
+        
+        levelInstance.transform.parent = gameObject.transform.parent; // Assign the instances parent (Not entirely necessary but it helps)
     }
 
     void Update() {
@@ -36,13 +45,12 @@ public class LevelManager : MonoBehaviour
 
     public void LostLevel() { // This method is public so that the spikes can access it
         Destroy(levelInstance); // Destroy the instance of the current level
-        
         destoryConvo = true;
         LoadLevel(); // Reload the same level
     }
 
     public void DestroyConvo() { // Make this a public function so it can be called when the player wants to skip dialogue
-        Destroy(GameObject.FindGameObjectWithTag("StartConvo")); // If the level has been restarted from a loss, delete the conversation button so it doesn't pop up again
+        dialogueTrigger.HideButton();
         destoryConvo = false;
     }
 

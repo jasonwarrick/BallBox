@@ -62,10 +62,23 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    public void DestroyConvoInstant() {
+        Destroy(GameObject.FindGameObjectWithTag("StartConvo"));
+    }
+
+    IEnumerator DestroyConvo() { // Create a coroutine to destroy the conversation once the animation is done playing (to avoid errors)
+        while (animator.GetCurrentAnimatorStateInfo(0).IsName("DialogueBox_Open")) { // Parameter code taken from: https://answers.unity.com/questions/362629/how-can-i-check-if-an-animation-is-being-played-or.html
+            yield return null; // Wait a frame if the open animation isn't playing yet
+        }
+
+        Destroy(GameObject.FindGameObjectWithTag("StartConvo"));
+        yield return null;
+    }
+
     void EndDialogue() {
         if (FindObjectOfType<DialogueTrigger>().dialogueFinished) { // Close the dialogue box if the trigger is exhausted
             animator.SetBool("isOpen", false);
-            Destroy(GameObject.FindGameObjectWithTag("StartConvo"));
+            DestroyConvo();
         } else {
             FindObjectOfType<DialogueTrigger>().TriggerDialogue(); // If it isn't, trigger the next speakers dialogue
         }
