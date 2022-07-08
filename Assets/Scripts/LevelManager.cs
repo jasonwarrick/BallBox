@@ -16,11 +16,20 @@ public class LevelManager : MonoBehaviour
     bool destoryConvo = false;
 
     public DialogueTrigger[] trigArray;
+    public GameObject skipDialogue;
 
     void Awake() {
         currentlevel = levels[counter]; // Set the current level to the first (will make this more modular as I flesh out the level system and menus)
         canvasManager = GameObject.FindGameObjectWithTag("CanvasManager");
         LoadLevel();
+    }
+
+    public void HideSkip() {
+        skipDialogue.SetActive(false);
+    }
+
+    public void ShowSkip() {
+        skipDialogue.SetActive(true);
     }
 
     void LoadLevel() {
@@ -30,8 +39,9 @@ public class LevelManager : MonoBehaviour
         dialogueTrigger = levelInstance.GetComponentInChildren<DialogueTrigger>();
         canvasManager.GetComponent<CanvasManager>().cleanConvo(); // Remove any existing conversations
         
-        if (!destoryConvo) { // Check if the level has been loaded from a loss, and destroy the conversation if it has
+        if (!destoryConvo) { // Only instance the conversation if the level hasn't been started from a loss
             canvasManager.GetComponent<CanvasManager>().startConvo(counter);
+            ShowSkip();
         }
         
         levelInstance.transform.parent = gameObject.transform.parent; // Assign the instances parent (Not entirely necessary but it helps)
@@ -60,7 +70,6 @@ public class LevelManager : MonoBehaviour
         if (counter == levels.Length - 1 || counter == -1) { counter = 0; } else { counter++; } // Increment the counter, or reset it to 0 if the length of the levels array has been reached
 
         currentlevel = levels[counter];
-        // trigArray[counter].TriggerDialogue();
         LoadLevel(); // Instantiate the next level
     }
 }

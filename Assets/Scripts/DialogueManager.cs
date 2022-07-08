@@ -16,15 +16,18 @@ public class DialogueManager : MonoBehaviour
 
     public float textDelayTime;
 
+    bool coroutineRunning = false;
+    string sentence;
+
     // Start is called before the first frame update
     void Start() {
         sentences = new Queue<string>();
     }
 
     public void StartDialogue(Dialogue dialogue) {
-        
-
         animator.SetBool("isOpen", true);
+
+        GameObject.Find("LevelManager").GetComponent<LevelManager>().HideSkip(); // Hide the skip dialogue button once dialogue has been started
 
         nameText.text = dialogue.name;
 
@@ -33,23 +36,30 @@ public class DialogueManager : MonoBehaviour
         foreach (string sentence in dialogue.sentences) {
             sentences.Enqueue(sentence);
         }
-
+        
         DisplayNextSentence();
     }
 
     public void DisplayNextSentence() {
-        if (sentences.Count == 0) { // End the dialogue when there are no more sentences to display
+        if (sentences.Count == 0 && !coroutineRunning) { // End the dialogue when there are no more sentences to display, and only if the coroutine is done
             EndDialogue();
             return;
         }
-
-        string sentence = sentences.Dequeue(); //Take the first element from the sentences queue and store it in a variable
+        
         StopAllCoroutines(); // Make sure there isn't another sentence trying to type out
 
-        StartCoroutine(TypeSentence(sentence));
+        if (!coroutineRunning) { // If the coroutine isn't running, display the next text as normal
+            sentence = sentences.Dequeue(); //Take the first element from the sentences queue and store it in a variable
+            StartCoroutine(TypeSentence(sentence));
+        } else { // If it isn't, skip the rest of the coroutine and immediately display the full sentence
+            dialogueText.text = sentence;
+            coroutineRunning = false;
+        }
     }
 
     IEnumerator TypeSentence(string sentence) { //IEnumerator means it's a coroutine (Can run while other methods are running)
+        coroutineRunning = true; // Keeps track of when the coroutine is running in order to dynnamically change the behavior of the continue button
+
         dialogueText.text = "";
 
         while (!animator.GetCurrentAnimatorStateInfo(0).IsName("DialogueBox_Open")) { // Parameter code taken from: https://answers.unity.com/questions/362629/how-can-i-check-if-an-animation-is-being-played-or.html
@@ -60,13 +70,15 @@ public class DialogueManager : MonoBehaviour
             dialogueText.text += letter;
             yield return new WaitForSeconds(textDelayTime);
         }
+
+        coroutineRunning = false;
     }
 
     public void DestroyConvoInstant() {
         Destroy(GameObject.FindGameObjectWithTag("StartConvo"));
     }
 
-    IEnumerator DestroyConvo() { // Create a coroutine to destroy the conversation once the animation is done playing (to avoid errors)
+    public IEnumerator DestroyConvo() { // Create a coroutine to destroy the conversation once the animation is done playing (to avoid errors)
         while (animator.GetCurrentAnimatorStateInfo(0).IsName("DialogueBox_Open")) { // Parameter code taken from: https://answers.unity.com/questions/362629/how-can-i-check-if-an-animation-is-being-played-or.html
             yield return null; // Wait a frame if the open animation isn't playing yet
         }
