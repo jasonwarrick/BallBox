@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
 public class LevelManager : MonoBehaviour
 {
+    //Rewired Stuff
+    [SerializeField] int playerId = 0;
+    Player player; // The Rewired Player
+
     [SerializeField] GameObject[] levels;
     DialogueTrigger dialogueTrigger;
 
@@ -14,11 +19,15 @@ public class LevelManager : MonoBehaviour
 
     public int counter = -1;
     bool destoryConvo = false;
+    bool restart = false;
 
     public DialogueTrigger[] trigArray;
     public GameObject skipDialogue;
 
     void Awake() {
+        // Get the Rewired Player object for this player and keep it for the duration of the character's lifetime
+        player = ReInput.players.GetPlayer(playerId);
+
         currentlevel = levels[counter]; // Set the current level to the first (will make this more modular as I flesh out the level system and menus)
         canvasManager = GameObject.FindGameObjectWithTag("CanvasManager");
         LoadLevel();
@@ -32,6 +41,14 @@ public class LevelManager : MonoBehaviour
         skipDialogue.SetActive(true);
     }
 
+    void FreezeMovement() {
+        levelInstance.GetComponent<BoxMovement>().enabled = false;
+    }
+
+    public void UnfreezeMovement() {
+        levelInstance.GetComponent<BoxMovement>().enabled = true;
+    }
+
     void LoadLevel() {
         Debug.Log(counter);
         levelInstance = Instantiate(currentlevel, transform.position, Quaternion.identity); // Instatiate the object at the correct position (transform.position is just the origin)
@@ -40,17 +57,29 @@ public class LevelManager : MonoBehaviour
         canvasManager.GetComponent<CanvasManager>().cleanConvo(); // Remove any existing conversations
         
         if (!destoryConvo) { // Only instance the conversation if the level hasn't been started from a loss
+            FreezeMovement();
             canvasManager.GetComponent<CanvasManager>().startConvo(counter);
             ShowSkip();
         }
         
+        levelInstance.transform.position = new Vector3(0, 0, 0);
         levelInstance.transform.parent = gameObject.transform.parent; // Assign the instances parent (Not entirely necessary but it helps)
+    }
+
+    void Get_Input() {
+        restart = player.GetButton("Restart");
+
+        if (restart) {
+            LostLevel();
+        }
     }
 
     void Update() {
         if (GameObject.Find("WinPoint").GetComponent<WinPoint>().win == true) { // Sort of a roundabout / not super clean way of telling whether or not the level has been won
             WonLevel();
         }
+
+        Get_Input();
     }
 
     public void LostLevel() { // This method is public so that the spikes can access it

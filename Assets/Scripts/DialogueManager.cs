@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
 
     public TextMeshProUGUI nameText; // Variable type tip taken from: https://answers.unity.com/questions/1747337/cant-assign-a-text-mesh-pro-on-the-inspector.html
     public TextMeshProUGUI dialogueText;
+    GameObject levelManager;
 
     public Animator animator;
 
@@ -22,6 +23,7 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         sentences = new Queue<string>();
+        levelManager = GameObject.FindGameObjectWithTag("LevelManager");
     }
 
     public void StartDialogue(Dialogue dialogue) {
@@ -91,6 +93,7 @@ public class DialogueManager : MonoBehaviour
         if (FindObjectOfType<DialogueTrigger>().dialogueFinished) { // Close the dialogue box if the trigger is exhausted
             animator.SetBool("isOpen", false);
             DestroyConvo();
+            levelManager.GetComponent<LevelManager>().UnfreezeMovement();            
         } else {
             FindObjectOfType<DialogueTrigger>().TriggerDialogue(); // If it isn't, trigger the next speakers dialogue
         }

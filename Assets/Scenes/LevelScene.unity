@@ -346,16 +346,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9399448aa6ac5c4683958fcca7239d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerId: 0
   levels:
   - {fileID: 2103394173639340391, guid: dab79eff0fd79154c92dd846b401ae06, type: 3}
   - {fileID: 3894224761347508801, guid: 9ffc7480995c8e6499fb337322496dfc, type: 3}
   - {fileID: 3894224761347508801, guid: c5cfcde6a5a98e844b449acaff1dd9b8, type: 3}
-  - {fileID: 221573706659343088, guid: a278b42f3a87b3a40b95bea75a12ba76, type: 3}
-  - {fileID: 221573706659343088, guid: 2480c3b3f7087954088c5db28d1a7b50, type: 3}
+  - {fileID: 2103394173639340391, guid: d084579904bff474397a27e41eda814a, type: 3}
   - {fileID: 3894224761347508801, guid: 7c2c80cc511c07a43927742693719c5d, type: 3}
+  - {fileID: 221573706659343088, guid: 2480c3b3f7087954088c5db28d1a7b50, type: 3}
   - {fileID: 221573706659343088, guid: 02bcc373d6d0fc4468137b4ff620277c, type: 3}
   - {fileID: 3894224761347508801, guid: aaaaad01ddbf5954d8a9cd312dc541fd, type: 3}
-  counter: 0
+  - {fileID: 221573706659343088, guid: cf414b1eaafd45c4f8d6d435963c31e9, type: 3}
+  counter: 8
   trigArray:
   - {fileID: 0}
   - {fileID: 0}
@@ -829,6 +831,15 @@ MonoBehaviour:
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 0
+    - _id: 4
+      _name: Restart
+      _type: 1
+      _descriptiveName: Restarts the level
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
     actionCategories:
     - _name: Default
       _descriptiveName: Default
@@ -838,7 +849,7 @@ MonoBehaviour:
     actionCategoryMap:
       list:
       - categoryId: 0
-        actionIds: 00000000010000000200000003000000
+        actionIds: 0000000001000000020000000300000004000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -920,7 +931,7 @@ MonoBehaviour:
       - _actionCategoryId: 0
         _actionId: 2
         _elementType: 0
-        _elementIdentifierId: 2
+        _elementIdentifierId: 0
         _axisRange: 0
         _invert: 1
         _axisContribution: 0
@@ -932,6 +943,17 @@ MonoBehaviour:
         _actionId: 3
         _elementType: 1
         _elementIdentifierId: 4
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 4
+        _elementType: 1
+        _elementIdentifierId: 8
         _axisRange: 0
         _invert: 0
         _axisContribution: 0
@@ -1024,13 +1046,24 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 4
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 114
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
     mouseMaps: []
     customControllerMaps: []
     customControllers: []
     controllerMapLayoutManagerRuleSets: []
     controllerMapEnablerRuleSets: []
     playerIdCounter: 2
-    actionIdCounter: 4
+    actionIdCounter: 5
     actionCategoryIdCounter: 1
     inputBehaviorIdCounter: 1
     mapCategoryIdCounter: 1
@@ -1579,6 +1612,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 268579226}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: UnfreezeMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1045065788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1935,6 +1980,7 @@ MonoBehaviour:
   - {fileID: 7477640029291032202, guid: b622596669935ce4fb0ac78c52068eda, type: 3}
   - {fileID: 5964356164078371271, guid: 3eb97a7cbeacf134e9a314a7d6f1e8b3, type: 3}
   - {fileID: 2042780197297065763, guid: b07d23c1676abb04f92e86a216f550ed, type: 3}
+  - {fileID: 6346412361990294606, guid: d1c9252e685bf8741ae8ba2adced45fd, type: 3}
   - {fileID: 6346412361990294606, guid: d1c9252e685bf8741ae8ba2adced45fd, type: 3}
 --- !u!1 &1589437053
 GameObject:
