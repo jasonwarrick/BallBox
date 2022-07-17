@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 using Rewired;
 
 public class LevelManager : MonoBehaviour
@@ -11,6 +13,7 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] GameObject[] levels;
     DialogueTrigger dialogueTrigger;
+    // Button 
 
     GameObject currentlevel;
     GameObject levelInstance;
@@ -20,6 +23,7 @@ public class LevelManager : MonoBehaviour
     public int counter = -1;
     bool destoryConvo = false;
     bool restart = false;
+    public bool freezeRestart = false;
 
     public DialogueTrigger[] trigArray;
     public GameObject skipDialogue;
@@ -41,12 +45,14 @@ public class LevelManager : MonoBehaviour
         skipDialogue.SetActive(true);
     }
 
-    void FreezeMovement() {
+    public void FreezeMovement() {
         levelInstance.GetComponent<BoxMovement>().enabled = false;
+        freezeRestart = true;
     }
 
     public void UnfreezeMovement() {
         levelInstance.GetComponent<BoxMovement>().enabled = true;
+        freezeRestart = false;
     }
 
     void LoadLevel() {
@@ -69,7 +75,8 @@ public class LevelManager : MonoBehaviour
     void Get_Input() {
         restart = player.GetButton("Restart");
 
-        if (restart) {
+        if (restart && !freezeRestart) {
+            HideSkip();
             LostLevel();
         }
     }
@@ -99,6 +106,7 @@ public class LevelManager : MonoBehaviour
         if (counter == levels.Length - 1 || counter == -1) { counter = 0; } else { counter++; } // Increment the counter, or reset it to 0 if the length of the levels array has been reached
 
         currentlevel = levels[counter];
+        destoryConvo = false;
         LoadLevel(); // Instantiate the next level
     }
 }

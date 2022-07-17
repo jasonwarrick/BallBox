@@ -357,7 +357,7 @@ MonoBehaviour:
   - {fileID: 221573706659343088, guid: 02bcc373d6d0fc4468137b4ff620277c, type: 3}
   - {fileID: 3894224761347508801, guid: aaaaad01ddbf5954d8a9cd312dc541fd, type: 3}
   - {fileID: 221573706659343088, guid: cf414b1eaafd45c4f8d6d435963c31e9, type: 3}
-  counter: 8
+  counter: 0
   trigArray:
   - {fileID: 0}
   - {fileID: 0}
@@ -840,6 +840,24 @@ MonoBehaviour:
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 0
+    - _id: 5
+      _name: Continue
+      _type: 1
+      _descriptiveName: Continue dialogue
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
+    - _id: 6
+      _name: Skip
+      _type: 1
+      _descriptiveName: Skip dialogue
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
     actionCategories:
     - _name: Default
       _descriptiveName: Default
@@ -849,7 +867,7 @@ MonoBehaviour:
     actionCategoryMap:
       list:
       - categoryId: 0
-        actionIds: 0000000001000000020000000300000004000000
+        actionIds: 00000000010000000200000003000000040000000500000006000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -961,6 +979,28 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 5
+        _elementType: 1
+        _elementIdentifierId: 4
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 6
+        _elementType: 1
+        _elementIdentifierId: 8
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
     keyboardMaps:
     - id: 0
       categoryId: 0
@@ -1057,13 +1097,35 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 5
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 32
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 6
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 114
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
     mouseMaps: []
     customControllerMaps: []
     customControllers: []
     controllerMapLayoutManagerRuleSets: []
     controllerMapEnablerRuleSets: []
     playerIdCounter: 2
-    actionIdCounter: 5
+    actionIdCounter: 7
     actionCategoryIdCounter: 1
     inputBehaviorIdCounter: 1
     mapCategoryIdCounter: 1
@@ -1256,8 +1318,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02abfbf617227fd4aad7ba8d0450a977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerId: 0
   nameText: {fileID: 734235434}
   dialogueText: {fileID: 1589437055}
+  skipButton: {fileID: 1045065787}
   animator: {fileID: 201687755}
   textDelayTime: 0.05
 --- !u!4 &954361684
@@ -1588,18 +1652,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1482911848}
-        m_TargetAssemblyTypeName: CanvasManager, Assembly-CSharp
-        m_MethodName: cleanConvo
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1045065785}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -1615,6 +1667,18 @@ MonoBehaviour:
       - m_Target: {fileID: 268579226}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: UnfreezeMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 954361683}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: EndDialogue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

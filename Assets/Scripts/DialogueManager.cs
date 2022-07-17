@@ -2,16 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Rewired;
 using TMPro;
 
  // Fundamental dialgoue scripts taken from Brackeys (Obviously): https://www.youtube.com/watch?v=_nRzoTzeyxU
 public class DialogueManager : MonoBehaviour
 {
+    //Rewired Stuff
+    [SerializeField] int playerId = 0;
+    Player player; // The Rewired Player
+
     Queue<string> sentences; // Queue is FIFO list
 
     public TextMeshProUGUI nameText; // Variable type tip taken from: https://answers.unity.com/questions/1747337/cant-assign-a-text-mesh-pro-on-the-inspector.html
     public TextMeshProUGUI dialogueText;
     GameObject levelManager;
+    public Button skipButton;
 
     public Animator animator;
 
@@ -19,6 +25,15 @@ public class DialogueManager : MonoBehaviour
 
     bool coroutineRunning = false;
     string sentence;
+    bool pressedCont = false;
+    bool contDebouncer = false;
+    bool pressedSkip = false;
+    bool dialogueEnded = false;
+    bool movementFrozen = false;
+
+    void Awake() {
+        player = ReInput.players.GetPlayer(playerId);
+    }
 
     // Start is called before the first frame update
     void Start() {
@@ -27,6 +42,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void StartDialogue(Dialogue dialogue) {
+        dialogueEnded = false;
         animator.SetBool("isOpen", true);
 
         GameObject.Find("LevelManager").GetComponent<LevelManager>().HideSkip(); // Hide the skip dialogue button once dialogue has been started
@@ -89,13 +105,44 @@ public class DialogueManager : MonoBehaviour
         yield return null;
     }
 
-    void EndDialogue() {
+    public void EndDialogue() {
         if (FindObjectOfType<DialogueTrigger>().dialogueFinished) { // Close the dialogue box if the trigger is exhausted
             animator.SetBool("isOpen", false);
             DestroyConvo();
-            levelManager.GetComponent<LevelManager>().UnfreezeMovement();            
+            levelManager.GetComponent<LevelManager>().UnfreezeMovement();
+            dialogueEnded = true;
         } else {
             FindObjectOfType<DialogueTrigger>().TriggerDialogue(); // If it isn't, trigger the next speakers dialogue
         }
+    }
+
+    void Get_Input() {
+        pressedCont = player.GetButton("Continue");
+        pressedSkip = player.GetButton("Skip");
+
+        if (pressedCont && !contDebouncer && !dialogueEnded) { // The debouncer ensures that the method will only be called once per button press
+            DisplayNextSentence();
+            contDebouncer = true;
+        }
+
+        if (!pressedCont && contDebouncer) {
+            contDebouncer = false;
+        }
+
+        if (pressedSkip && !animator.GetCurrentAnimatorStateInfo(0).IsName("DialogueBox_Open")) { // Make sure that the skip function is only called before the dialogue is shown
+            dialogueEnded = true;
+            skipButton.onClick.Invoke();
+            levelManager.GetComponent<LevelManager>().FreezeMovement(); // Freeze movement so the level doesn't restart on skip
+            movementFrozen = true;
+        }
+
+        if (!pressedSkip && movementFrozen) { // Unfreeze level movement AFTER skipping
+            movementFrozen = false;
+            levelManager.GetComponent<LevelManager>().UnfreezeMovement();
+        }
+    }
+
+    void Update() {
+        Get_Input();
     }
 }
