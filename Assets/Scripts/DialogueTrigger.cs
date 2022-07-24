@@ -44,8 +44,8 @@ public class DialogueTrigger : MonoBehaviour
     }
 
     public void HideButton() {
-        GameObject startConvo = GameObject.FindGameObjectWithTag("StartConvo");
-        startConvo.GetComponent<Image>().enabled = false;
-        startConvo.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
+        // GameObject startConvo = GameObject.FindGameObjectWithTag("StartConvo");
+        gameObject.GetComponent<Image>().enabled = false;
+        gameObject.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
     }
 }

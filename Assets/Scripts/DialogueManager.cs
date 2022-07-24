@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
 
     public TextMeshProUGUI nameText; // Variable type tip taken from: https://answers.unity.com/questions/1747337/cant-assign-a-text-mesh-pro-on-the-inspector.html
     public TextMeshProUGUI dialogueText;
+    public GameObject canvasManager;
     GameObject levelManager;
     public Button skipButton;
 
@@ -30,6 +31,7 @@ public class DialogueManager : MonoBehaviour
     bool pressedSkip = false;
     bool dialogueEnded = false;
     bool movementFrozen = false;
+    bool skipDebouncer = false;
 
     void Awake() {
         player = ReInput.players.GetPlayer(playerId);
@@ -92,27 +94,23 @@ public class DialogueManager : MonoBehaviour
         coroutineRunning = false;
     }
 
-    public void DestroyConvoInstant() {
-        Destroy(GameObject.FindGameObjectWithTag("StartConvo"));
-    }
-
-    public IEnumerator DestroyConvo() { // Create a coroutine to destroy the conversation once the animation is done playing (to avoid errors)
-        while (animator.GetCurrentAnimatorStateInfo(0).IsName("DialogueBox_Open")) { // Parameter code taken from: https://answers.unity.com/questions/362629/how-can-i-check-if-an-animation-is-being-played-or.html
-            yield return null; // Wait a frame if the open animation isn't playing yet
-        }
-
-        Destroy(GameObject.FindGameObjectWithTag("StartConvo"));
-        yield return null;
-    }
-
     public void EndDialogue() {
         if (FindObjectOfType<DialogueTrigger>().dialogueFinished) { // Close the dialogue box if the trigger is exhausted
             animator.SetBool("isOpen", false);
-            DestroyConvo();
             levelManager.GetComponent<LevelManager>().UnfreezeMovement();
             dialogueEnded = true;
         } else {
             FindObjectOfType<DialogueTrigger>().TriggerDialogue(); // If it isn't, trigger the next speakers dialogue
+        }
+    }
+
+    public void SkipDialogue(bool unfreeze) {
+        skipButton.gameObject.SetActive(false);
+        canvasManager.GetComponent<CanvasManager>().cleanConvo();
+        dialogueEnded = true;
+
+        if(!movementFrozen) {
+            levelManager.GetComponent<LevelManager>().UnfreezeMovement();
         }
     }
 
@@ -129,14 +127,14 @@ public class DialogueManager : MonoBehaviour
             contDebouncer = false;
         }
 
-        if (pressedSkip && !animator.GetCurrentAnimatorStateInfo(0).IsName("DialogueBox_Open")) { // Make sure that the skip function is only called before the dialogue is shown
-            dialogueEnded = true;
-            skipButton.onClick.Invoke();
-            levelManager.GetComponent<LevelManager>().FreezeMovement(); // Freeze movement so the level doesn't restart on skip
+        if (pressedSkip && !animator.GetCurrentAnimatorStateInfo(0).IsName("DialogueBox_Open") && !skipDebouncer) { // Make sure that the skip function is only called before the dialogue is shown
+            skipDebouncer = true;
             movementFrozen = true;
+            SkipDialogue(movementFrozen);
         }
 
         if (!pressedSkip && movementFrozen) { // Unfreeze level movement AFTER skipping
+            skipDebouncer = false;
             movementFrozen = false;
             levelManager.GetComponent<LevelManager>().UnfreezeMovement();
         }

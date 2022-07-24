@@ -1,0 +1,113 @@
+[33mcommit 96538ed82a6f74fb69716a3c488571cdd5af92bb[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: jasonwarrick <jwarrick737@gmail.com>
+Date:   Sun Jul 17 15:53:28 2022 -0600
+
+    Dialogue system polish and controller/keyboard interaction
+
+[33mcommit 8d72849bfde6cfaa7b0c88a60506052558e6bbde[m
+Author: jasonwarrick <jwarrick737@gmail.com>
+Date:   Fri Jul 15 15:49:59 2022 -0600
+
+    First 9 levels, incomplete dialogue
+
+[33mcommit 5082aa12e6c0178ba2877bb75a0625f1a1ad3c7d[m
+Author: jasonwarrick <jwarrick737@gmail.com>
+Date:   Fri Jul 8 14:01:32 2022 -0600
+
+    Fully functional dialogue system
+
+[33mcommit 23852e119b716c9e00d4b3137bcc76b83546f7dc[m
+Author: jasonwarrick <jwarrick737@gmail.com>
+Date:   Wed Jul 6 20:19:52 2022 -0600
+
+    Stabler and modular dialogue system
+
+[33mcommit 6d258cee9838885475b700810c7d731515ffe4b6[m
+Author: jasonwarrick <jwarrick737@gmail.com>
+Date:   Thu Jun 23 13:09:51 2022 -0600
+
+    Working level dialogue (for now)
+
+[33mcommit 3a3b634c33a5eb434368ed7fce17d3d0bf846f3c[m[33m ([m[1;32mdevelop[m[33m)[m
+Author: jasonwarrick <jwarrick737@gmail.com>
+Date:   Sun Jun 19 11:16:28 2022 -0600
+
+    Multi-Person Dialogue
+
+[33mcommit b25753a2f1b7a98cf86030f69e61db7f4853a136[m
+Author: jasonwarrick <jwarrick737@gmail.com>
+Date:   Sun Jun 19 11:11:24 2022 -0600
+
+    Multi-Person dialogue
+
+[33mcommit 6ae606746e24813a01f9f3ffc3f48e80f66e53f7[m
+Author: jasonwarrick <jwarrick737@gmail.com>
+Date:   Thu Jun 16 11:17:26 2022 -0600
+
+    Initial dialogue system
+
+[33mcommit 4cdd987593a097ceb2be9a7dc55d7458a04c3462[m
+Author: jasonwarrick <jwarrick737@gmail.com>
+Date:   Thu Jun 16 08:49:57 2022 -0600
+
+    Reset on spike collision working
+
+[33mcommit 8a60bf38b3506f1c6c59c79e61a8e12b4e14d36b[m
+Author: jasonwarrick <jwarrick737@gmail.com>
+Date:   Tue Jun 14 21:56:06 2022 -0600
+
+    Working level system
+
+[33mcommit 42f38f72e321c1897d96adc90c937b736ad554b7[m
+Author: jasonwarrick <jwarrick737@gmail.com>
+Date:   Mon Jun 13 12:48:04 2022 -0600
+
+    First 6 levels
+
+[33mcommit 0acebec4bb3dfefb9be991286313fc8c4e865a67[m
+Author: jasonwarrick <jwarrick737@gmail.com>
+Date:   Sun Jun 12 14:12:07 2022 -0600
+
+    Bump movement
+
+[33mcommit fdd8d085c19b119e39db4916af43dfd787fffbea[m
+Author: jasonwarrick <jwarrick737@gmail.com>
+Date:   Fri Jun 10 15:01:04 2022 -0600
+
+    Working spike, not working fan
+
+[33mcommit dfb2f23325c0d0a6d0a1cdaa594999aa3524d3ed[m
+Author: jasonwarrick <jwarrick737@gmail.com>
+Date:   Tue Jun 7 23:10:10 2022 -0600
+
+    Working win and spawn points
+
+[33mcommit 8e7bfc4ca2edb9d5806aa8aaa372b06c080692e3[m
+Author: jasonwarrick <jwarrick737@gmail.com>
+Date:   Mon Jun 6 21:30:51 2022 -0600
+
+    Started level system
+
+[33mcommit a8259230f89e425143514d4fe63085228d675db3[m
+Author: jasonwarrick <jwarrick737@gmail.com>
+Date:   Mon Jun 6 20:28:30 2022 -0600
+
+    Significantly improved collisions, could be better though
+
+[33mcommit 241c54458f595e8086e31e0a507984e849602765[m
+Author: jasonwarrick <jwarrick737@gmail.com>
+Date:   Fri Jun 3 15:32:56 2022 -0600
+
+    Rewired integration and next step for collision
+
+[33mcommit eabc30ebb551ec863621406ade8c3f0ed40f4425[m
+Author: jasonwarrick <jwarrick737@gmail.com>
+Date:   Thu Jun 2 11:12:34 2022 -0600
+
+    Gitignore and license
+
+[33mcommit bbd5735473cd59df2571e6d08beca770fee55741[m
+Author: jasonwarrick <jwarrick737@gmail.com>
+Date:   Thu Jun 2 11:04:35 2022 -0600
+
+    Setup
